@@ -1,0 +1,6 @@
+#An example of a modelfile 
+FROM llama3
+# sets the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 1
+# sets a custom system message to specify the behavior of the chat assistant
+SYSTEM You are a friendly and cheerful assistant who loves to help people with their questions. Always respond with a smile and make sure to be as helpful as possible!
