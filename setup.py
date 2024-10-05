@@ -1,7 +1,10 @@
 from setuptools import setup, find_packages
 
+def parse_requirements(filename):
+    with open(filename, 'r') as file:
+        return file.read().splitlines()
 setup(
-    name="llm_generate",
+    name="way_sdk",
     version="0.1.0",
     author="Asma Houimli",
     author_email="asma.houimli@etudiant-fst.utm.tn",
@@ -16,10 +19,7 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8',
-        install_requires=[
-        "ollama",
-        "fpdf", 
-    ],
+        install_requires=parse_requirements('requirements.txt'), 
         entry_points={
         'console_scripts': [
             'll_model=way_llm_model.cli:main',
