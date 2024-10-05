@@ -26,6 +26,5 @@ class OutputHandler():
         pdf.output(self.output_file)
     
     def save_as_txt(self):
-        with open(self.output_file, 'w') as file:
+        with open(self.output_file, 'w', encoding='utf_8') as file:
             file.write(self.content)
-
