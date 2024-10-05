@@ -7,22 +7,23 @@
 **Parameters:**
 
 - **model**(str): the model name. (By default = llama3)
-- **messages**(list, required): a list of message dictionaries. Each dictionary should contain 'role' (either 'user' or 'assistant') and 'content' (the message content).
 - **system_message**(str, optional): system message (this will override what is written in the modelfile).
 - **output_file**(str, optional): The output file can be pdf, json, or txt.
+- **exit_command**(str, optional): The keyword that the user can type to exit the chat. Defaults to `exit`.
 
+**Returns:**
+- **conversation_history**(list of dict):
+A list of dictionaries containing the user's messages and the AI assistant's responses. Each dictionary has two keys:
+    - **user_message**: The user's message.
+    - **assistant_message**: The assistant's message.
 **Examples**
 
 ~~~python
-conversation = [
-    {'role': 'user', 'content': 'Hello, who are you?'},
-    {'role': 'assistant', 'content': 'I am an AI created to assist you.'},
-    {'role': 'user', 'content': 'Can you tell me a joke?'}
-]
-
 response = LL_model.chat(
-    messages=conversation,
-    output_file='chat_output.txt'
+    model="llama3",
+    system_message="You're a helpful assistant!",
+    output_file='chat_output.txt',
+    exit_command="bye"
 )
 print(response)
 ~~~
