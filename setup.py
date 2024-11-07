@@ -4,7 +4,7 @@ def parse_requirements(filename):
     with open(filename, 'r') as file:
         return file.read().splitlines()
 setup(
-    name="way_sdk",
+    name="llm_generate",
     version="0.1.0",
     author="Asma Houimli",
     author_email="asma.houimli@etudiant-fst.utm.tn",
@@ -22,7 +22,7 @@ setup(
         install_requires=parse_requirements('requirements.txt'), 
         entry_points={
         'console_scripts': [
-            'll_model=way_llm_model.cli:main',
+            'll_model=ll_model.cli:main',
         ],
     }
 

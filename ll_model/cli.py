@@ -1,6 +1,6 @@
 import argparse
 from .LL_model import LL_model
-from ._config import SERVER_NAME
+from ._config import OLLAMA_HOST
 def main():
     parser = argparse.ArgumentParser(description="LLama3 Model CLI")
     
@@ -32,7 +32,7 @@ def main():
 
     args = parser.parse_args()
     if args.server_name:
-        SERVER_NAME=args.server_name
+        OLLAMA_HOST=args.server_name
     if args.command == 'create':
         LL_model.create(args.model_name, args.model_file, args.modelfilepath)
         print(f"Model {args.model_name} created successfully.")
