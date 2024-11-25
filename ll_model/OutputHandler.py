@@ -2,7 +2,9 @@ from fpdf import FPDF
 import os
 
 class OutputHandler():
-    def __init__(self, content, output_format, output_file):
+    def __init__(self, content, output_file):
+        _, file_extension = os.path.splitext(output_file)
+        output_format=file_extension.lstrip('.').lower()
         self.content=content
         self.output_format=output_format
         self.output_file=output_file

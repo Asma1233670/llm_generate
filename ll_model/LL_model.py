@@ -51,7 +51,7 @@ class LL_model:
                 with open(output_file, 'w',encoding="utf-8") as f:
                     json.dump(response_text, f, indent=4)
             elif output_format and output_format != 'json':
-                OutputHandler(response_text, output_format, output_file)
+                OutputHandler(response_text, output_file)
             return response_text
         except Exception as e:
             print(f"An error occurred during generation: {e}")
