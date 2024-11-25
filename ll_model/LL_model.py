@@ -47,10 +47,7 @@ class LL_model:
         try:
             output = self.client.generate(**generate_args,stream=False)
             response_text = output['response']
-            if output_format == 'json' and output_file:
-                with open(output_file, 'w',encoding="utf-8") as f:
-                    json.dump(response_text, f, indent=4)
-            elif output_format and output_format != 'json':
+            if output_format:
                 OutputHandler(response_text, output_file)
             return response_text
         except Exception as e:
