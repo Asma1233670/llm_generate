@@ -80,8 +80,9 @@ PARAMETER <parameter> <parametervalue>
 
 ### TEMPLATE
 
-`TEMPLATE` of the full prompt template to be passed into the model. It may include (optionally) a system message, a user's message and the response from the model. 
-Note: syntax may be model specific. Template use GO [template_syntax](https://pkg.go.dev/text/template)
+`TEMPLATE` of the full prompt template to be passed into the model. It may include (optionally) a system message, a user's message and the response from the model.
+
+Note: syntax may be model specific.
 **Template variables**
 - `{{ .System }}` The system message used to specify custom behavior.
 - `{{ .Prompt }}` The user prompt message.
