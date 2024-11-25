@@ -1,5 +1,6 @@
-from ._config import  Create_client, DEFAULT_MODEL_NAME
-import json, os
+import sys, json, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from  _config import  Create_client, DEFAULT_MODEL_NAME
 from .OutputHandler import OutputHandler
 
 class LL_model:

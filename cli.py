@@ -1,14 +1,13 @@
 import argparse
-from .LL_model import LL_model
-from ._config import OLLAMA_HOST
+from ll_model.LL_model import LL_model
+
 def main():
     parser = argparse.ArgumentParser(description="LLama3 Model CLI")
     
       
 
     subparsers = parser.add_subparsers(dest="command")
-    # Add server_name argument
-    parser.add_argument('--server_name', help='Server name or API address.')
+
     # Create subcommand
     create_parser = subparsers.add_parser('create', help='Create a new model')
     create_parser.add_argument('--model_name', required=True, help='Name of the model')
@@ -31,20 +30,16 @@ def main():
     chat_parser.add_argument('--output_file', help='Output file')
 
     args = parser.parse_args()
-    if args.server_name:
-        OLLAMA_HOST=args.server_name
     if args.command == 'create':
         LL_model.create(args.model_name, args.model_file, args.modelfilepath)
         print(f"Model {args.model_name} created successfully.")
     
     elif args.command == 'generate':
         print(f"Generating text with model {args.model_name}...")
-        #model = LL_model(args.model_name)
         response = LL_model.generate(args.model_name,args.prompt, args.system_message,args.output_file, args.options, args.template)
         print(response)
     
     elif args.command == 'chat':
-        #model = LL_model(args.model_name)
         response = LL_model.chat(args.model_name, args.system_message,args.output_file)
         print(response)
 

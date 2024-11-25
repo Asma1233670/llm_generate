@@ -5,7 +5,7 @@ from ll_model.LL_model import LL_model
 
 class TestLlama3Model_(unittest.TestCase):
     def test_chat(self):
-        response = LL_model.chat(prompt="What is the meaning of life?",system_message="You are a wise sage!",output_file="chat.txt")
+        response = LL_model.chat(system_message="You are a wise sage!",output_file="chat.txt")
         print(response)
 
 if __name__ == '__main__':

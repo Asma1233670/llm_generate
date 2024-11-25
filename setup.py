@@ -22,7 +22,7 @@ setup(
         install_requires=parse_requirements('requirements.txt'), 
         entry_points={
         'console_scripts': [
-            'll_model=ll_model.cli:main',
+            'll_model=cli:main',
         ],
     }
 
